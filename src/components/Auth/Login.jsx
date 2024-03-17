@@ -101,9 +101,9 @@ const Login = () => {
                   placeholder="Password"
                 />
                 {showPassword ? (
-                  <RiEyeCloseFill onClick={togglePasswordVisibility} />
+                  <FaEye onClick={togglePasswordVisibility} />
                 ) : (
-                  <RiEyeFill onClick={togglePasswordVisibility} />
+                  <FaEyeSlash onClick={togglePasswordVisibility} />
                 )}
                 {/* <i
                   onClick={togglePasswordVisibility}
