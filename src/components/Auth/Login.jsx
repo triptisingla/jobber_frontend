@@ -6,6 +6,7 @@ import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ const Login = () => {
 
       localStorage.setItem("token", data.token);
 
-      console.log("here",localStorage.getItem('token'));
+      console.log("here", localStorage.getItem("token"));
       // console.log(document.cookie.get('token'));
       // Cookies.set("token", data.token);
       toast.success(data.message);
@@ -44,11 +45,9 @@ const Login = () => {
     }
   };
 
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
 
   if (isAuthorized) {
     return <Navigate to={"/"} />;
@@ -96,12 +95,18 @@ const Login = () => {
               <label htmlFor="password">Password</label>
               <div>
                 <input
-                  type={showPassword?"text":"password"}
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                 />
-                <i onClick={togglePasswordVisibility} className={`fa ${!showPassword ? "fa-eye-slash" : "fa-eye" }`}></i>
+                <button className="show_password" onClick={togglePasswordVisibility}>
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+                <i
+                  onClick={togglePasswordVisibility}
+                  className={`fa ${!showPassword ? "fa-eye-slash" : "fa-eye"}`}
+                ></i>
                 <RiLock2Fill />
               </div>
             </div>

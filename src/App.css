@@ -7,6 +7,17 @@
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
+
+.show_password {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .clickable {
   background: red;
   width: 100px;
@@ -20,8 +31,8 @@
   pointer-events: none;
 }
 
-#root{
-  background:#fff;
+#root {
+  background: #fff;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -165,8 +176,7 @@ p {
   color: #fff;
   /* background: #073e67; */
   /* background: #073e67; */
-  background: #452a99
-  ;
+  background: #452a99;
   font-size: 1.2rem;
   border-radius: 7px;
 }
