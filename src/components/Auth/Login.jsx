@@ -101,7 +101,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                 />
-                <i onClick={togglePasswordVisibility} className={`fa ${eye ? "fa-eye-slash" : "fa-eye" }`}></i>
+                <i onClick={togglePasswordVisibility} className={`fa ${!showPassword ? "fa-eye-slash" : "fa-eye" }`}></i>
                 <RiLock2Fill />
               </div>
             </div>
