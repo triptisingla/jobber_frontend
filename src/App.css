@@ -8,16 +8,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-.show_password {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 .clickable {
   background: red;
   width: 100px;

@@ -6,7 +6,7 @@ import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -100,13 +100,15 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                 />
-                <button className="show_password" onClick={togglePasswordVisibility}>
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
-                <i
+                {showPassword ? (
+                  <RiEyeCloseFill onClick={togglePasswordVisibility} />
+                ) : (
+                  <RiEyeFill onClick={togglePasswordVisibility} />
+                )}
+                {/* <i
                   onClick={togglePasswordVisibility}
                   className={`fa ${!showPassword ? "fa-eye-slash" : "fa-eye"}`}
-                ></i>
+                ></i> */}
                 <RiLock2Fill />
               </div>
             </div>
