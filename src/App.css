@@ -7,9 +7,7 @@
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
-.eye {
-  background: #87878778;
-}
+
 .clickable {
   background: red;
   width: 100px;

@@ -8,6 +8,8 @@ import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 // import "../../App.css";
 
 const Register = () => {
@@ -16,6 +18,7 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const { isAuthorized, setIsAuthorized, user, setUser } = useContext(Context);
 
@@ -44,6 +47,10 @@ const Register = () => {
       toast.error(error.response.data.message);
     }
   };
+  
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   if (isAuthorized) {
     return <Navigate to={"/"} />;
@@ -53,11 +60,7 @@ const Register = () => {
       <section className="authPage">
         <div className="container">
           <div className="header">
-            <img
-              src="/logo.png"
-              alt="logo"
-              height="100%" 
-            />
+            <img src="/logo.png" alt="logo" height="100%" />
             <h3>Create a new account</h3>
           </div>
           <form action="">
@@ -121,11 +124,22 @@ const Register = () => {
               <label htmlFor="password">Password</label>
               <div>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                 />
+                {showPassword ? (
+                  <FaEye
+                    onClick={togglePasswordVisibility}
+                    style={{ backgroundColor: "#87878778" }}
+                  />
+                ) : (
+                  <FaEyeSlash
+                    onClick={togglePasswordVisibility}
+                    style={{ backgroundColor: "#87878778" }}
+                  />
+                )}
                 <RiLock2Fill />
               </div>
             </div>

@@ -101,9 +101,15 @@ const Login = () => {
                   placeholder="Password"
                 />
                 {showPassword ? (
-                  <FaEye onClick={togglePasswordVisibility} className="eye" />
+                  <FaEye
+                    onClick={togglePasswordVisibility}
+                    style={{ backgroundColor: "#87878778" }}
+                  />
                 ) : (
-                  <FaEyeSlash onClick={togglePasswordVisibility} className="eye"/>
+                  <FaEyeSlash
+                    onClick={togglePasswordVisibility}
+                    style={{ backgroundColor: "#87878778" }}
+                  />
                 )}
                 {/* <i
                   onClick={togglePasswordVisibility}
