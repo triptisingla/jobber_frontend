@@ -11,6 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const { isAuthorized, setIsAuthorized, user, setUser } = useContext(Context);
 
@@ -42,6 +43,12 @@ const Login = () => {
       toast.error(error?.response?.data?.message);
     }
   };
+
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
 
   if (isAuthorized) {
     return <Navigate to={"/"} />;
@@ -79,7 +86,7 @@ const Login = () => {
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tr@gmail.com"
+                  placeholder="eg: John@gmail.com"
                 />
                 <MdOutlineMailOutline />
               </div>
@@ -89,11 +96,12 @@ const Login = () => {
               <label htmlFor="password">Password</label>
               <div>
                 <input
-                  type="password"
+                  type={showPassword?"text":"password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                 />
+                <i onClick={togglePasswordVisibility} className={`fa ${eye ? "fa-eye-slash" : "fa-eye" }`}></i>
                 <RiLock2Fill />
               </div>
             </div>

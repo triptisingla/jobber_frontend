@@ -127,7 +127,6 @@ const Register = () => {
                   placeholder="Password"
                 />
                 <RiLock2Fill />
-                <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
               </div>
             </div>
 
